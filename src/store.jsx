@@ -27,7 +27,7 @@ function makeInitialState() {
       currency: 'USD',
       ownerName: 'Faizan Khan',
       weekStart: 'Monday',
-      theme: 'dark',
+      theme: 'light',
     },
   }
 }
