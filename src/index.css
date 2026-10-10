@@ -3,17 +3,17 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --bg: #fafafa;
+  --bg: #f7f8fc;
   --surface: #ffffff;
-  --surface-2: #f5f5f5;
-  --surface-3: #ececec;
-  --border: #e8e8e8;
-  --border-strong: #d6d6d6;
-  --fg: #1a1a1a;
-  --muted: #666666;
-  --faint: #9b9b9b;
-  --accent: #1a1a1a;
-  --accent-soft: rgba(0, 0, 0, 0.05);
+  --surface-2: #f1f2f9;
+  --surface-3: #e6e8f5;
+  --border: #e5e7f4;
+  --border-strong: #c9cde8;
+  --fg: #15172b;
+  --muted: #5f6480;
+  --faint: #9a9db5;
+  --accent: #4f46e5;
+  --accent-soft: rgba(79, 70, 229, 0.1);
   --accent-fg: #ffffff;
   --success: #15803d;
   --success-soft: rgba(21, 128, 61, 0.1);
@@ -23,28 +23,28 @@
   --danger-soft: rgba(220, 38, 38, 0.08);
   --info: #0369a1;
   --info-soft: rgba(3, 105, 161, 0.1);
-  --chart-1: #1f2937;
-  --chart-2: #2563eb;
+  --chart-1: #4f46e5;
+  --chart-2: #0ea5e9;
   --chart-3: #16a34a;
   --chart-4: #d97706;
   --chart-5: #6b7280;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.1);
+  --shadow: 0 1px 2px rgba(30, 30, 80, 0.06);
+  --shadow-lg: 0 12px 32px rgba(40, 40, 110, 0.12);
 }
 
 .dark {
-  --bg: #0a0a0a;
-  --surface: #111111;
-  --surface-2: #171717;
-  --surface-3: #202020;
-  --border: #262626;
-  --border-strong: #3a3a3a;
-  --fg: #f5f5f5;
-  --muted: #a3a3a3;
-  --faint: #737373;
-  --accent: #fafafa;
-  --accent-soft: rgba(255, 255, 255, 0.08);
-  --accent-fg: #0a0a0a;
+  --bg: #0a0b16;
+  --surface: #12131f;
+  --surface-2: #191b2b;
+  --surface-3: #22253a;
+  --border: #262a44;
+  --border-strong: #3a3f63;
+  --fg: #eef0f8;
+  --muted: #a3a7c0;
+  --faint: #717594;
+  --accent: #818cf8;
+  --accent-soft: rgba(129, 140, 248, 0.14);
+  --accent-fg: #0a0b16;
   --success: #4ade80;
   --success-soft: rgba(74, 222, 128, 0.12);
   --warning: #fbbf24;
@@ -53,8 +53,8 @@
   --danger-soft: rgba(248, 113, 113, 0.12);
   --info: #38bdf8;
   --info-soft: rgba(56, 189, 248, 0.12);
-  --chart-1: #e5e7eb;
-  --chart-2: #60a5fa;
+  --chart-1: #818cf8;
+  --chart-2: #38bdf8;
   --chart-3: #4ade80;
   --chart-4: #fbbf24;
   --chart-5: #9ca3af;
@@ -111,6 +111,7 @@ body {
   background-color: var(--bg);
   color: var(--fg);
   font-family:
+    'Inter',
     ui-sans-serif,
     system-ui,
     -apple-system,
