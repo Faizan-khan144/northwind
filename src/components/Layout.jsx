@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom'
 import {
+  ArrowLeft,
   Bell,
   FolderKanban,
   LayoutDashboard,
@@ -19,7 +20,7 @@ import { Avatar, IconButton } from './ui.jsx'
 import { cn } from '../lib/utils.js'
 
 const NAV = [
-  { to: '/', label: 'Dashboard', icon: LayoutDashboard, end: true },
+  { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard, end: true },
   { to: '/clients', label: 'Clients', icon: Users },
   { to: '/projects', label: 'Projects', icon: FolderKanban },
   { to: '/tasks', label: 'Tasks', icon: ListChecks },
@@ -29,10 +30,9 @@ const NAV = [
 
 function Logo({ compact = false }) {
   return (
-    <Link to="/" className="flex items-center gap-2.5">
-      <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-xl bg-accent text-accent-fg">
-        <span className="text-base font-bold">N</span>
-        <span className="absolute -top-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-chart-2" />
+    <Link to="/dashboard" className="flex items-center gap-2.5">
+      <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-fg text-bg">
+        <span className="text-sm font-bold">N</span>
       </span>
       {!compact && (
         <span className="flex flex-col leading-none">
@@ -84,6 +84,12 @@ function Sidebar({ open, onClose }) {
         </nav>
 
         <div className="border-t border-line p-3">
+          <Link
+            to="/"
+            className="mb-2 flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium text-faint transition-colors hover:bg-surface-2 hover:text-fg"
+          >
+            <ArrowLeft size={14} /> Back to site
+          </Link>
           <div className="flex items-center gap-3 rounded-xl bg-surface-2 px-3 py-2.5">
             <Avatar name={db.settings.ownerName} accent="indigo" size={34} />
             <div className="min-w-0">
