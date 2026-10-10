@@ -108,7 +108,7 @@ export function IconButton({ className = '', label, children, ...props }) {
 
 export function Card({ className = '', children, as: Tag = 'div', ...props }) {
   return (
-    <Tag className={cn('rounded-2xl border border-line bg-surface shadow-card', className)} {...props}>
+    <Tag className={cn('rounded-xl border border-line bg-surface shadow-card', className)} {...props}>
       {children}
     </Tag>
   )
@@ -126,15 +126,14 @@ export function CardHeader({ title, subtitle, action, className = '' }) {
   )
 }
 
-export function StatCard({ label, value, delta, icon: Icon, accent = 'indigo' }) {
-  const color = ACCENTS[accent] ?? ACCENTS.indigo
+export function StatCard({ label, value, delta, icon: Icon }) {
   const up = typeof delta === 'number' ? delta >= 0 : null
   return (
     <Card className="p-5">
       <div className="flex items-center justify-between">
         <span className="text-xs font-medium tracking-wide text-faint uppercase">{label}</span>
         {Icon && (
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl" style={{ backgroundColor: `${color}1f`, color }}>
+          <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-surface-2 text-muted">
             <Icon size={17} />
           </span>
         )}
@@ -182,7 +181,7 @@ export function Modal({ open, onClose, title, description, children, footer, wid
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto p-4 sm:items-center">
       <div className="fixed inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
-      <div className={cn('animate-scale relative z-10 w-full rounded-2xl border border-line bg-surface shadow-pop', width)}>
+      <div className={cn('animate-scale relative z-10 w-full rounded-xl border border-line bg-surface shadow-pop', width)}>
         <div className="flex items-start justify-between gap-4 border-b border-line px-5 py-4">
           <div>
             <h2 className="text-base font-semibold text-fg">{title}</h2>
@@ -233,7 +232,7 @@ export function EmptyState({ icon: Icon, title, description, action }) {
   return (
     <div className="flex flex-col items-center justify-center gap-3 px-6 py-16 text-center">
       {Icon && (
-        <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-surface-3 text-faint">
+        <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-surface-3 text-faint">
           <Icon size={22} />
         </span>
       )}
