@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { X } from 'lucide-react'
+import { useCountUp, useInView } from '../lib/hooks.js'
 import { ACCENTS, cn, initials } from '../lib/utils.js'
 
 export function Avatar({ name, accent = 'indigo', size = 36, className = '' }) {
@@ -126,8 +127,10 @@ export function CardHeader({ title, subtitle, action, className = '' }) {
   )
 }
 
-export function StatCard({ label, value, delta, icon: Icon }) {
+export function StatCard({ label, value, delta, icon: Icon, animate, format }) {
   const up = typeof delta === 'number' ? delta >= 0 : null
+  const count = useCountUp(animate ?? 0, { duration: 900 })
+  const display = animate !== undefined ? (format ? format(count) : Math.round(count).toLocaleString()) : value
   return (
     <Card className="p-5">
       <div className="flex items-center justify-between">
@@ -139,7 +142,7 @@ export function StatCard({ label, value, delta, icon: Icon }) {
         )}
       </div>
       <div className="mt-3 flex items-end gap-2">
-        <span className="tabular text-2xl font-semibold tracking-tight text-fg">{value}</span>
+        <span className="tabular text-2xl font-semibold tracking-tight text-fg">{display}</span>
         {up !== null && (
           <span className={cn('mb-1 text-xs font-semibold', up ? 'text-success' : 'text-danger')}>
             {up ? '▲' : '▼'} {Math.abs(delta)}%
@@ -272,6 +275,23 @@ export function Tabs({ tabs, value, onChange }) {
           {t.label}
         </button>
       ))}
+    </div>
+  )
+}
+
+export function Reveal({ children, delay = 0, y = 20, className = '' }) {
+  const [ref, inView] = useInView()
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        opacity: inView ? 1 : 0,
+        transform: inView ? 'none' : `translateY(${y}px)`,
+        transition: `opacity 0.7s cubic-bezier(0.22,1,0.36,1) ${delay}ms, transform 0.7s cubic-bezier(0.22,1,0.36,1) ${delay}ms`,
+      }}
+    >
+      {children}
     </div>
   )
 }
