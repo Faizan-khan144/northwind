@@ -177,3 +177,30 @@ body {
 .animate-scale {
   animation: nw-scale 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
+
+.hover-lift {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    opacity 0.25s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-strong);
+}
+
+@keyframes nw-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.animate-pulse-soft {
+  animation: nw-pulse 2.4s ease-in-out infinite;
+}
