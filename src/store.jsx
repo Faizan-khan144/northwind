@@ -83,9 +83,7 @@ export function StoreProvider({ children }) {
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(db))
-    } catch {
-      /* storage disabled */
-    }
+    } catch {}
   }, [db])
 
   useEffect(() => {
@@ -130,27 +128,21 @@ export function StoreProvider({ children }) {
       setTheme: (theme) => {
         try {
           localStorage.setItem(THEME_KEY, theme)
-        } catch {
-          /* ignore */
-        }
+        } catch {}
         dispatch({ type: 'SETTINGS', patch: { theme } })
       },
       toggleTheme: () => {
         const next = db.settings.theme === 'dark' ? 'light' : 'dark'
         try {
           localStorage.setItem(THEME_KEY, next)
-        } catch {
-          /* ignore */
-        }
+        } catch {}
         dispatch({ type: 'SETTINGS', patch: { theme: next } })
       },
       setSettings: (patch) => dispatch({ type: 'SETTINGS', patch }),
       reset: () => {
         try {
           localStorage.removeItem(STORAGE_KEY)
-        } catch {
-          /* ignore */
-        }
+        } catch {}
         dispatch({ type: 'RESET' })
       },
     }),
