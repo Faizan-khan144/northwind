@@ -10,7 +10,7 @@ export default function NotFound() {
         title="Page not found"
         description="The page you're looking for doesn't exist or has moved."
         action={
-          <Button as={Link} to="/" variant="primary">
+          <Button as={Link} to="/dashboard" variant="primary">
             <Home size={16} /> Back to dashboard
           </Button>
         }
