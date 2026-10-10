@@ -31,7 +31,7 @@ const NAV = [
 function Logo({ compact = false }) {
   return (
     <Link to="/dashboard" className="flex items-center gap-2.5">
-      <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-fg text-bg">
+      <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-accent-fg">
         <span className="text-sm font-bold">N</span>
       </span>
       {!compact && (
